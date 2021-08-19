@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+
+  <body>
+    <script>
+      // 함수 선언
+      function fun1() {
+        console.log("a");
+        console.log("b");
+        console.log("c");
+      }
+
+      function fun2(x, y) {
+        // x와 y에 값을 주지 않으면 undefined
+        let result = x + y;
+        // 결과는 NaN(Not a Number)으로 출력된다.
+        return result;
+      }
+
+      // 매개변수에 디폴트 값 주기
+      function fun3(x = 0, y = 0) {
+        let result = x + y;
+        return result;
+      }
+
+      let fun4 = function (x, y) {
+        let result = x + y;
+        return result;
+      };
+
+      let fun5 = (x, y) => {
+        let result = x + y;
+        return result;
+      };
+
+      // 매개변수가 1개인 경우 괄호 생략이 가능하다.
+      let fun6 = (x) => {
+        console.log("x:", x);
+      };
+
+      // 매개변수가 없는 경우에는 괄호를 생략할 수 없다.
+      let fun7 = () => {
+        console.log("Hello, This is Arrow Function.");
+      };
+
+      // 실행문이 하나인 화살표 함수는 중괄호를 생략할 수 있다.
+      let fun8 = () => console.log("중괄호 생략해도 잘 동작합니다.");
+
+      // return문만 있는 경우에는 중괄호를 생략할 수 없다.
+      let fun9 = (x, y) => {
+        return x + y;
+      };
+
+      // 하지만 return까지 생략하면 가능하다.
+      let fun10 = (x, y) => x + y;
+
+      // 함수의 리턴값이 객체일 경우
+      const fun11 = () => {
+        return { name: "홍길동", age: 25 };
+      };
+
+      const fun12 = () => ({ name: "홍길동", age: 25 });
+
+      // 함수 호출
+      fun1();
+
+      let result1 = fun2(3, 5);
+      console.log("result1:", result1);
+
+      let result2 = fun3(3);
+      console.log("result2:", result2);
+
+      let result3 = fun4(3, 6);
+      console.log("result3:", result3);
+
+      let result4 = fun5(3, 7);
+      console.log("result4:", result4);
+
+      fun6(5);
+      fun7();
+      fun8();
+
+      console.log("fun9():", fun9(1, 2));
+      console.log("fun10():", fun10(1, 2));
+      console.log("fun11():", fun11());
+      console.log("fun12():", fun12());
+    </script>
+  </body>
+</html>

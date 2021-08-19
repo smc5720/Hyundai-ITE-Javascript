@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+
+  <body>
+    <script>
+      // 전역변수 선언
+      var var1 = 1;
+      let var2 = 1;
+      const var3 = 1; // 상수는 값 변경 불가능
+
+      // 변수 값을 변경
+      var1 = 2;
+      var2 = 2;
+      // var3 = 2; (X)
+
+      if (true) {
+        var var4 = 1;
+        let var5 = 1;
+        const var6 = 1;
+        console.log("var4:", var4);
+        console.log("var5:", var5);
+        console.log("var6:", var6);
+      }
+
+      // var보다 let과 const의 사용을 권장하는 이유
+      console.log("var4:", var4); // 선언 블록을 벗어나도 사용이 가능하다.
+      // console.log("var5:", var5); // 선언 블록을 벗어나면 사용이 불가능하다.
+      // console.log("var6:", var6); // 선언 블록을 벗어나면 사용이 불가능하다.
+
+      function fun1() {
+        if (true) {
+          var var7 = 1;
+          let var8 = 1;
+          const var9 = 1;
+          var10 = 1; // 아무 것도 주지 않으면 전역변수가 된다.
+          console.log("var7:", var7);
+          console.log("var8:", var8);
+          console.log("var9:", var9);
+          console.log("var10:", var10); // var10은 전역변수
+        }
+        console.log("var7:", var7); // 선언 블록을 벗어나도 사용이 가능하다.
+        // console.log("var8:", var8);
+        // console.log("var9:", var9);
+        console.log("var10:", var10); // var10은 전역변수
+      }
+      fun1();
+      // console.log("var7:", var7); // 선언된 함수가 종료되면 var도 사용할 수 없다.
+      console.log("var10:", var10); // var10은 전역변수
+    </script>
+  </body>
+</html>
