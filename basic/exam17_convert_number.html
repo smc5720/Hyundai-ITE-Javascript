@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function handleCalc() {
+        // input 태그에서 들어오는 모든 값은 string으로 들어온다.
+        let inputX = document.getElementById("x").value;
+        let inputY = document.getElementById("y").value;
+        let result = parseInt(inputX) + parseFloat(inputY);
+        document.getElementById("result").innerHTML = result;
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="card m-2">
+      <div class="card-header">문자열을 숫자로 변환</div>
+      <div class="card-body">
+        <div class="m-2">x: <input id="x" type="text" /></div>
+        <div class="m-2">y: <input id="y" type="text" /></div>
+        <div class="m-2">
+          <button class="btn badge-danger btn-sm" onclick="handleCalc()">
+            계산
+          </button>
+        </div>
+        <hr />
+        <div id="result"></div>
+      </div>
+    </div>
+  </body>
+</html>

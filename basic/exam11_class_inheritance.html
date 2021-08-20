@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+
+  <body>
+    <script>
+      // 클래스(설계도)를 선언
+      class Car {
+        // 생성자 선언
+        // 생성자는 하나만 작성이 가능하다.
+        constructor(name = "그랜저", price = 5000) {
+          // 객체 속성 선언
+          this.name = name;
+          this.price = price;
+        }
+
+        // 메소드 선언
+        start() {
+          // this는 이 객체를 의미한다.
+          console.log(this.name + "의 시동을 겁니다.");
+        }
+
+        setPrice(price) {
+          this.price = price;
+        }
+      }
+
+      class SuperCar extends Car {
+        constructor(name, price, cc) {
+          super(name, price);
+          this.cc = cc;
+        }
+
+        fastRun() {
+          console.log("빠르게 달립니다.");
+        }
+      }
+
+      // 자식 객체 생성
+      const myCar = new SuperCar("포르쉐", 20000, 5000);
+      console.log(myCar.name);
+      console.log(myCar.price);
+      console.log(myCar.cc);
+      myCar.start();
+      myCar.fastRun();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+
+  <body>
+    <script>
+      const board = {
+        title: "오늘은 금요일",
+        content: "오늘은 과제를 열심히 하겠어요. 일찍 가지 않아요.",
+        writer: "홍길동",
+      };
+
+      // 구조분해 할당(대입)
+      // board가 가진 값들 중 title만 뽑아서 집어넣겠다는 의미이다.
+      let { title } = board; // let title = board.title;
+      console.log(title);
+      // -------------------------------
+      let { content, writer } = board;
+      // let content = board.content;
+      // let writer = board.writer;
+      console.log(content);
+      console.log(writer);
+      // -------------------------------
+      function fun1({ title }) {
+        console.log(title);
+      }
+      fun1(board);
+      // -------------------------------
+      const member = {
+        mid: "summer",
+        name: "한여름",
+        age: 30,
+      };
+      let { mid, ...rest } = member;
+      console.log(mid);
+      console.log(rest);
+      // -------------------------------
+      function addBno(b) {
+        // 직접 명시된 애들을 제외한 나머지가 ...에 들어간다.
+        return { ...b, bno: 5, title: "소독 뿌리는 날" };
+      }
+      const newBoard = addBno(board);
+      console.log(newBoard);
+    </script>
+  </body>
+</html>

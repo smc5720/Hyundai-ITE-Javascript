@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function nextNum(){
+        // 0.0 <= ... < 1
+        let num = Math.random();
+        // 0.0 <= ... < 6
+        num *= 6;
+        // 0, 1, 2, 3, 4, 5
+        num = Math.floor(num);
+        // 1, 2, 3, 4, 5, 6
+        num += 1;
+        document.getElementById("result").innerHTML = num;
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="card m-2">
+      <div class="card-header">주사위 눈 얻기(Math 클래스 이용)</div>
+      <div class="card-body">
+        <div class="m-2">
+          <button class="btn badge-danger btn-sm" onclick="nextNum()">
+            던지기
+          </button>
+        </div>
+        <hr />
+        <div id="result"></div>
+      </div>
+    </div>
+  </body>
+</html>

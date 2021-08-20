@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+
+  <body>
+    <script>
+      class Car {
+        // 정적 속성
+        static company = "현대자동차";
+
+        constructor(name = "그랜저", price = 5000) {
+          this.name = name;
+          this.price = price;
+        }
+
+        // 메소드 선언
+        start() {
+          // this는 이 객체를 의미한다.
+          console.log(this.name + "의 시동을 겁니다.");
+        }
+
+        // static 메소드 안에서는 static 멤버만 호출 가능하다.
+        // 객체가 없으므로 this를 사용할 수 없다.
+        static getCompany() {
+          return Car.company;
+        }
+      }
+
+      // 클래스 정적 속성과 메소드 사용
+      console.log(Car.company);
+      console.log(Car.getCompany());
+
+      // 객체 생성
+      const myCar = new Car();
+      console.log(myCar.name);
+      myCar.start();
+    </script>
+  </body>
+</html>

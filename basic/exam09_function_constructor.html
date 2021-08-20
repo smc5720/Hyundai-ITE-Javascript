@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+
+  <body>
+    <script>
+      // 함수에 뜬금없이 this가 나온다면 생성자이다.
+      function Car(name, price) {
+        this.name = name;
+        this.price = price;
+        this.start = function () {
+          console.log("시동을 겁니다.");
+        };
+      }
+
+      // 생성자로부터 객체 생성
+      const myCar = new Car("포르쉐", 200000000);
+      const yourCar = new Car("람보르기니", 300000000);
+
+      console.log(myCar.name, myCar.price);
+      myCar.start();
+
+      console.log(yourCar.name, yourCar.price);
+      yourCar.start();
+    </script>
+  </body>
+</html>

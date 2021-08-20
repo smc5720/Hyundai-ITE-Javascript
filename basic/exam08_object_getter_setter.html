@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+
+  <body>
+    <script>
+      const car = {
+        name: "그랜저",
+        price: 5000,
+        speed: 100, // mile
+        start: function () {
+          console.log("시동을 겁니다.");
+        },
+        set meterSpeed(meter) {
+          let result = meter / 0.621371;
+          this.speed = result;
+        },
+        get currSpeed() {
+          let result = this.speed * 0.621371; // meter로 변환
+          return result;
+        },
+      };
+
+      console.log(car.speed);
+      console.log(car.currSpeed);
+
+      car.meterSpeed = 2000;
+      console.log(car.speed);
+      console.log(car.currSpeed);
+    </script>
+  </body>
+</html>

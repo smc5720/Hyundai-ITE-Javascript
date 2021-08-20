@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+
+  <body>
+    <script>
+      // 클래스(설계도)를 선언
+      class Car {
+        // 생성자 선언
+        // 생성자는 하나만 작성이 가능하다.
+        constructor(name = "그랜저", price = 5000) {
+          // 객체 속성 선언
+          this.name = name;
+          this.price = price;
+        }
+
+        // 메소드 선언
+        start() {
+          // this는 이 객체를 의미한다.
+          console.log(this.name + "의 시동을 겁니다.");
+        }
+
+        setPrice(price) {
+          this.price = price;
+        }
+      }
+
+      // 객체 생성
+      const myCar = new Car();
+      console.group("myCar 내용");
+      console.log("name:", myCar.name);
+      console.log("price:", myCar.price);
+      console.groupEnd();
+      myCar.start();
+      myCar.setPrice(4000);
+      console.log("myCar 가격: " + myCar.price);
+
+      const myCar2 = new Car("소나타", 3000);
+      console.group("myCar2 내용");
+      console.log("name:", myCar2.name);
+      console.log("price:", myCar2.price);
+      console.groupEnd();
+      myCar2.start();
+      myCar2.setPrice(2000);
+      console.log("myCar2 가격: " + myCar2.price);
+    </script>
+  </body>
+</html>
