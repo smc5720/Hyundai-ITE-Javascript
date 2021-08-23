@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function handleClose() {
+        const value = document.getElementById("inputData").value;
+        // opener는 이 팝업을 띄운 parent를 의미한다.
+        window.opener.document.getElementById("receiveValue").innerHTML = value;
+        window.close();
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="card">
+      <div class="card-header">Popup Window</div>
+      <div class="card-body">
+        <div><span>입력값:</span><input id="inputData" type="text" /></div>
+        <hr />
+        <div class="mt-2">
+          <button class="btn btn-danger btn-sm" onclick="handleClose()">
+            닫기
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+
+  <body>
+    <script>
+      let var1 = 0;
+      let var2;
+      let var3 = null;
+
+      if (var1) { // 0 이외에는 전부 true이다.
+        console.log("true");
+      } else {
+        console.log("false");
+      }
+
+      if (var2) { // undefined는 false이다.
+        console.log("true");
+      } else {
+        console.log("false");
+      }
+
+      if (var3) { // null은 false이다.
+        console.log("true");
+      } else {
+        console.log("false");
+      }
+    </script>
+  </body>
+</html>
