@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function handleSubmit() {
+        // form의 기본 제출(submit) 기능을 중지한다.
+        event.preventDefault();
+
+        // 유효성 검사 코드
+        let email = $("#inputEmail4").val();
+        console.log("email:", email);
+
+        // let password = document.querySelector("#inputPassword4").value;
+        let password = $("#inputPassword4").val();
+        console.log("password:", password);
+
+        let city = $("#inputCity").val();
+        console.log("city:", city);
+
+        let hobby = $("[name=hobby]:checked");
+        for (let tag of hobby) {
+          console.log("hobby:", tag.value);
+        }
+
+        let job = $("[name=job]:checked").val();
+        console.log("job:", job);
+
+        // joinForm에 submit 이벤트를 발생
+        // 아래의 handleSubmit()과 루프가 발생한다.
+        // $("#joinForm").submit();
+        
+        // action에 지정된 URL로 제출함
+        $("#joinForm")[0].submit();
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="card">
+      <div class="card-header">JavaScript로 form 태그 다루기</div>
+      <div class="card-body">
+        <form
+          id="joinForm"
+          name="joinForm"
+          action="#"
+          onsubmit="handleSubmit()"
+        >
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="inputEmail4"
+                name="inputEmail4"
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="inputPassword4"
+                name="inputPassword4"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputAddress">Address</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputAddress"
+              placeholder="1234 Main St"
+            />
+          </div>
+          <div class="form-group">
+            <label for="inputAddress2">Address 2</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputAddress2"
+              placeholder="Apartment, studio, or floor"
+            />
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="inputCity">City</label>
+              <select id="inputCity" name="inputCity" class="form-control">
+                <option selected value="seoul">서울</option>
+                <option value="pusan">부산</option>
+                <option value="jeju">제주</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input type="checkbox" name="hobby" value="movie" />
+              <label> 영화 </label>
+              <input type="checkbox" name="hobby" value="trip" />
+              <label> 여행 </label>
+              <input type="checkbox" name="hobby" value="game" />
+              <label> 게임 </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input type="radio" name="job" value="developer" />
+              <label> 개발자 </label>
+              <input type="radio" name="job" value="designer" />
+              <label> 디자이너 </label>
+              <input type="radio" name="job" value="manager" />
+              <label> 매니져 </label>
+            </div>
+          </div>
+          <button class="btn btn-primary">Sign in</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

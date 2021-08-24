@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function setAlarm() {
+        let time = document.getElementById("time").value;
+        time = parseInt(time);
+        time *= 1000;
+
+        timerId = window.setTimeout(() => {
+          window.alert("알람이 울립니다.");
+        }, time);
+      }
+
+      function setCancel() {
+        window.clearTimeout(timerId);
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="card">
+      <div class="card-header">setTimeout</div>
+      <div class="card-body">
+        <input type="text" id="time" />초
+        <button class="btn btn-info btn-sm" onclick="setAlarm()">
+          알람 설정
+        </button>
+        <button class="btn btn-info btn-sm" onclick="setCancel()">
+          알람 취소
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
