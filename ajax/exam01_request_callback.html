@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function requestAjax() {
+        console.log("1");
+        $.ajax("exam01_server.html")
+          .done((data, textStatus) => {
+            console.log("done callback");
+            console.log("data:", data);
+            console.log("textStatus:", textStatus);
+            // innerHTML에 직접 넣는 것과 같은 코드이다.
+            // $("#content").html(data);
+            // innerHTML에 직접 추가하는 것과 같은 코드이다.
+            $("#content").append(data);
+          })
+          .fail((error) => {
+            console.log("fail callback");
+            console.log("error:", error);
+            console.log("error.status:", error.status);
+            if (error.status === 404) {
+              console.log("요청 리소스가 없음");
+            }
+          })
+          .always(() => {
+            // always는 생략이 가능하다.
+            // error가 나지 않을 자신이 있으면 error도 생략할 수 있다.
+            console.log("always callback");
+          });
+        console.log("2");
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="card">
+      <div class="card-header">Ajax 요청과 응답 처리</div>
+      <div class="card-body">
+        <button class="btn btn-info btn-sm" onclick="requestAjax()">
+          Ajax 요청
+        </button>
+        <hr />
+        <div id="content">
+          <div class="card">
+            <div class="card-header">원래 내용</div>
+            <div class="card-body">
+              <img src="/images/photo10.jpg" width="200px" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

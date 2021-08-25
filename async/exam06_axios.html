@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+
+    <script>
+      function doWork1() {
+        axios
+          .get("exam06_server.html")
+          .then((response) => {
+            console.log(response);
+            console.log(response.data);
+            // document.querySelector("#content").innerHTML += response.data;
+            $("#content").html(response.data);
+          })
+          .catch((response) => {
+            console.log(response);
+          });
+      }
+
+      async function doWork2() {
+        try {
+          const response = await axios.get("exam06_server.html");
+          console.log(response);
+          console.log(response.data);
+          // document.querySelector("#content").innerHTML += response.data;
+          $("#content").html(response.data);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="card">
+      <div class="card-header">Promise based Axios</div>
+      <div class="card-body">
+        <button class="btn btn-info btn-sm" onclick="doWork1()">방법1</button>
+        <button class="btn btn-info btn-sm" onclick="doWork2()">방법2</button>
+        <hr />
+        <div id="content"></div>
+      </div>
+    </div>
+  </body>
+</html>

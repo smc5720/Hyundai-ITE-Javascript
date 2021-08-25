@@ -1,0 +1,5 @@
+[
+  { "fileName": "photo1.jpg", "title": "풍경1", "price": 100000 },
+  { "fileName": "photo2.jpg", "title": "풍경2", "price": 200000 },
+  { "fileName": "photo3.jpg", "title": "풍경3", "price": 300000 }
+]

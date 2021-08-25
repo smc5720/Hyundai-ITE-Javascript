@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // 작업을 수행하는게 아니라 작업 그 자체를 리턴하는 함수이다.
+      function work() {
+        const promise = new Promise((resolve, reject) => {
+          // 시간을 요하는 작업
+          const success = true;
+          if (success) {
+            resolve("작업 결과");
+          } else {
+            reject("에러");
+          }
+        });
+        return promise;
+      }
+
+      // 이 함수는 동기로 동작하므로 함수에서 소요하는 시간만큼 아무것도 할 수 없다.
+      function doWork1() {
+        // 3초가 걸리는 코드
+        work()
+          .then((response) => {
+            console.log("작업 성공:", response);
+          })
+          .catch((response) => {
+            console.log("작업 실패:", response);
+          })
+          .finally(() => {
+            console.log("작업 마무리");
+          });
+      }
+
+      // 이 함수 자체적으로는 비동기로 동작하지만, 함수 내부는 동기로 동작한다.
+      async function doWork2() {
+        // 3초가 걸리는 코드
+        try {
+          // async, await가 없으면 작업 결과가 아니라 promise 객체가 저장된다.
+          // async, await가 있으면 promise를 실행시키고 결과 값을 받아온다.
+          const response = await work();
+          console.log(response);
+        } catch (response) {
+          console.log(response);
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="card m-3">
+      <div class="card-header">Promise 실행 방법</div>
+      <div class="card-body">
+        <button class="btn btn-info btn-sm" onclick="doWork1()">방법1</button>
+        <button class="btn btn-info btn-sm" onclick="doWork2()">방법2</button>
+      </div>
+    </div>
+  </body>
+</html>
